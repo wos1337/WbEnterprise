@@ -8,13 +8,23 @@ document.getElementById("applyFilters").addEventListener("click", () => {
   document.getElementById("yearlySales").textContent = `$${Math.floor(Math.random() * 9000000 + 5000000)}`;
   document.getElementById("profitByRegion").textContent = `$${Math.floor(Math.random() * 4000000 + 1000000)}`;
   document.getElementById("profitByState").textContent = `$${Math.floor(Math.random() * 2000000 + 500000)}`;
+  document.getElementById("totalCalls").textContent = Math.floor(Math.random() * 500 + 100);
+  document.getElementById("avgTalkTime").textContent = `${Math.floor(Math.random() * 3 + 2)} mins ${Math.floor(Math.random() * 59)} secs`;
+  document.getElementById("missedCalls").textContent = Math.floor(Math.random() * 20 + 5);
 
-  // Update Top Customers
-  const topCustomers = document.getElementById("topCustomers");
-  topCustomers.innerHTML = `
+  // Update Top Customers and Products
+  document.getElementById("topCustomers").innerHTML = `
     <li>${region === "North" ? "North Supplies" : "Global Traders"}</li>
     <li>Green Valley Inc.</li>
     <li>Trail & Farm Dealers</li>
+  `;
+
+  document.getElementById("topProducts").innerHTML = `
+    <li>${brand === "Kubota" ? "Kubota Tractor Blades" : "Camso Tracks"}</li>
+    <li>UTV Windshields</li>
+    <li>Lawn Tractor Mowers</li>
+    <li>Trailer Hitch Kits</li>
+    <li>LED Light Bars</li>
   `;
 
   // Reinitialize Charts with New Data
@@ -22,15 +32,6 @@ document.getElementById("applyFilters").addEventListener("click", () => {
 });
 
 function renderCharts(region, brand) {
-  // Example data based on region and brand
-  const regionSales = {
-    North: 500000,
-    South: 600000,
-    East: 700000,
-    West: 800000,
-    all: 1000000,
-  };
-
   const ctx1 = document.getElementById("salesByRegionChart").getContext("2d");
   new Chart(ctx1, {
     type: "bar",
@@ -39,7 +40,7 @@ function renderCharts(region, brand) {
       datasets: [
         {
           label: "Sales",
-          data: Object.values(regionSales),
+          data: [300000, 500000, 400000, 200000],
           backgroundColor: ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
         },
       ],
@@ -48,7 +49,7 @@ function renderCharts(region, brand) {
 
   const ctx2 = document.getElementById("salesByProductChart").getContext("2d");
   new Chart(ctx2, {
-    type: "doughnut",
+    type: "pie",
     data: {
       labels: ["Product A", "Product B", "Product C", "Product D"],
       datasets: [
@@ -64,4 +65,3 @@ function renderCharts(region, brand) {
 
 // Render default charts on load
 renderCharts("all", "all");
- 
