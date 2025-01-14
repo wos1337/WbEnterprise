@@ -3,60 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Reporting Dashboard</title>
+  <title>Enterprise Sales Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Enterprise Reporting Dashboard</h1>
-    <p>Comprehensive Analytics for CEO Decision-Making</p>
-  </header>
-  <main>
-    <section id="summary">
-      <div class="card" id="daily-sales">
-        <h2>Daily Sales</h2>
-        <p id="daily-sales-value">$0</p>
+  <div class="container-fluid">
+    <!-- Header -->
+    <header class="py-4 bg-primary text-white text-center">
+      <h1>Enterprise Sales Dashboard</h1>
+      <p>Visualizing Data for Strategic Decisions</p>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="row my-4 text-center">
+      <div class="col-md-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>Daily Sales</h5>
+            <p class="fs-4 text-success" id="daily-sales">$25,000</p>
+          </div>
+        </div>
       </div>
-      <div class="card" id="monthly-sales">
-        <h2>Monthly Sales</h2>
-        <p id="monthly-sales-value">$0</p>
+      <div class="col-md-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>Monthly Sales</h5>
+            <p class="fs-4 text-success" id="monthly-sales">$750,000</p>
+          </div>
+        </div>
       </div>
-      <div class="card" id="yearly-sales">
-        <h2>Yearly Sales</h2>
-        <p id="yearly-sales-value">$0</p>
+      <div class="col-md-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>Yearly Sales</h5>
+            <p class="fs-4 text-success" id="yearly-sales">$9,000,000</p>
+          </div>
+        </div>
       </div>
-      <div class="card" id="calls-per-day">
-        <h2>Calls per Day</h2>
-        <p id="calls-per-day-value">0</p>
-      </div>
-    </section>
-    <section id="charts">
-      <div class="chart-container">
-        <h3>Sales by Region</h3>
-        <canvas id="sales-by-region"></canvas>
-      </div>
-      <div class="chart-container">
-        <h3>Sales by State</h3>
-        <canvas id="sales-by-state"></canvas>
-      </div>
-      <div class="chart-container">
-        <h3>Sales by Brand</h3>
-        <canvas id="sales-by-brand"></canvas>
-      </div>
-      <div class="chart-container">
-        <h3>Sales by Product</h3>
-        <canvas id="sales-by-product"></canvas>
-      </div>
-      <div class="chart-container">
-        <h3>Profit by Region</h3>
-        <canvas id="profit-by-region"></canvas>
+      <div class="col-md-3">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>Orders This Month</h5>
+            <p class="fs-4 text-info" id="monthly-orders">1,200</p>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
-  <footer>
-    <p>&copy; 2025 Your Company. All Rights Reserved.</p>
-  </footer>
+
+    <!-- Charts Section -->
+    <section class="row">
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">Sales by Region</div>
+          <div class="card-body">
+            <canvas id="sales-by-region"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">Sales by State</div>
+          <div class="card-body">
+            <canvas id="sales-by-state"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="row">
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">Sales by Brand</div>
+          <div class="card-body">
+            <canvas id="sales-by-brand"></canvas>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-header">Sales by Product</div>
+          <div class="card-body">
+            <canvas id="sales-by-product"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <script src="scripts.js"></script>
 </body>
 </html>
