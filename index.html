@@ -4,27 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enterprise Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="dashboard">
     <!-- Header -->
-    <header class="py-4 bg-primary text-white text-center">
+    <header class="dashboard-header">
       <h1>Enterprise Sales Dashboard</h1>
-      <p class="lead">Comprehensive insights into your business performance</p>
+      <p>Comprehensive insights into your business performance</p>
     </header>
 
     <!-- Filters -->
-    <div class="row py-4 px-3 bg-light">
-      <div class="col-md-3 mb-3">
-        <label for="dateRange" class="form-label">Date Range</label>
-        <input type="date" id="dateRange" class="form-control">
+    <div class="filters">
+      <div class="filter">
+        <label for="dateRange">Date Range</label>
+        <input type="date" id="dateRange">
       </div>
-      <div class="col-md-3 mb-3">
-        <label for="regionFilter" class="form-label">Region</label>
-        <select id="regionFilter" class="form-select">
+      <div class="filter">
+        <label for="regionFilter">Region</label>
+        <select id="regionFilter">
           <option value="all">All Regions</option>
           <option value="north">North</option>
           <option value="south">South</option>
@@ -32,9 +31,9 @@
           <option value="west">West</option>
         </select>
       </div>
-      <div class="col-md-3 mb-3">
-        <label for="brandFilter" class="form-label">Brand</label>
-        <select id="brandFilter" class="form-select">
+      <div class="filter">
+        <label for="brandFilter">Brand</label>
+        <select id="brandFilter">
           <option value="all">All Brands</option>
           <option value="Kubota">Kubota</option>
           <option value="John Deere">John Deere</option>
@@ -42,68 +41,41 @@
           <option value="Honda">Honda</option>
         </select>
       </div>
-      <div class="col-md-3 mb-3 d-flex align-items-end">
-        <button class="btn btn-primary w-100" id="applyFilters">Apply Filters</button>
-      </div>
+      <button id="applyFilters">Apply Filters</button>
     </div>
 
-    <!-- Cards -->
-    <div class="row text-center py-4">
-      <div class="col-md-3 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Daily Sales</h5>
-            <p class="card-text display-6 text-success">$25,000</p>
-          </div>
-        </div>
+    <!-- Metrics -->
+    <div class="metrics">
+      <div class="metric-card">
+        <h2>Daily Sales</h2>
+        <p class="metric-value">$25,000</p>
       </div>
-      <div class="col-md-3 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Monthly Sales</h5>
-            <p class="card-text display-6 text-info">$750,000</p>
-          </div>
-        </div>
+      <div class="metric-card">
+        <h2>Monthly Sales</h2>
+        <p class="metric-value">$750,000</p>
       </div>
-      <div class="col-md-3 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Yearly Sales</h5>
-            <p class="card-text display-6 text-primary">$9,000,000</p>
-          </div>
-        </div>
+      <div class="metric-card">
+        <h2>Yearly Sales</h2>
+        <p class="metric-value">$9,000,000</p>
       </div>
-      <div class="col-md-3 mb-4">
-        <div class="card shadow h-100">
-          <div class="card-body">
-            <h5 class="card-title">Orders This Month</h5>
-            <p class="card-text display-6 text-warning">1,200</p>
-          </div>
-        </div>
+      <div class="metric-card">
+        <h2>Orders This Month</h2>
+        <p class="metric-value">1,200</p>
       </div>
     </div>
 
     <!-- Charts -->
-    <div class="row py-4">
-      <div class="col-md-6 mb-4">
-        <div class="card shadow">
-          <div class="card-header">Sales by Region</div>
-          <div class="card-body">
-            <canvas id="salesByRegionChart"></canvas>
-          </div>
-        </div>
+    <div class="charts">
+      <div class="chart-container">
+        <h3>Sales by Region</h3>
+        <canvas id="salesByRegionChart"></canvas>
       </div>
-      <div class="col-md-6 mb-4">
-        <div class="card shadow">
-          <div class="card-header">Sales by Product</div>
-          <div class="card-body">
-            <canvas id="salesByProductChart"></canvas>
-          </div>
-        </div>
+      <div class="chart-container">
+        <h3>Sales by Product</h3>
+        <canvas id="salesByProductChart"></canvas>
       </div>
     </div>
   </div>
-
   <script src="scripts.js"></script>
 </body>
 </html>
