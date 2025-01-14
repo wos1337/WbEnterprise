@@ -1,128 +1,69 @@
-/* styles.css */
-
-/* Global Styles */
+/* General Styling */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Arial', sans-serif;
+  padding: 0;
   background-color: #f4f4f9;
-  color: #333;
 }
 
 .dashboard {
-  max-width: 1200px;
-  margin: 20px auto;
   padding: 20px;
 }
 
-/* Header */
 .dashboard-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .dashboard-header h1 {
-  font-size: 2.5rem;
-  color: #007bff;
+  margin: 0;
+  color: #333;
 }
 
-.dashboard-header p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-/* Filters Section */
 .filters {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 30px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  justify-content: space-around;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
-.filter {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-width: 150px;
-}
-
-.filter label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.filter input,
-.filter select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-#applyFilters {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#applyFilters:hover {
-  background-color: #0056b3;
-}
-
-/* Metrics Section */
 .metrics {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  margin-bottom: 20px;
 }
 
 .metric-card {
-  flex: 1;
-  min-width: 180px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
+  background: #fff;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .metric-card h2 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #555;
+  margin: 0;
+  color: #444;
 }
 
-.metric-value {
-  font-size: 1.8rem;
+.metric-card .metric-value {
+  font-size: 1.5rem;
   color: #28a745;
-  font-weight: bold;
-}
-
-/* Charts Section */
-.charts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 
 .chart-container {
-  flex: 1;
-  min-width: 400px;
-  background-color: #fff;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .chart-container h3 {
+  margin-bottom: 10px;
   text-align: center;
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #007bff;
 }
