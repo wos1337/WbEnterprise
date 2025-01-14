@@ -1,83 +1,23 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-  }
-  
-  header {
-    background-color: #007bff;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  header p {
-    margin: 5px 0 0;
-    font-size: 1.2rem;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  #summary {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-  }
-  
-  .card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 20%;
-  }
-  
-  .card h2 {
-    margin: 0 0 10px;
-    font-size: 1.5rem;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #007bff;
-  }
-  
-  #charts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  
-  .chart-container {
-    width: 45%;
-    margin-bottom: 30px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chart-container h3 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #343a40;
-    color: #fff;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+header {
+  background: #007bff;
+  color: #fff;
+}
+
+.card {
+  border: none;
+}
+
+.card-header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.card-body {
+  text-align: center;
+}
