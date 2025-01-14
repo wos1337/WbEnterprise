@@ -64,3 +64,4 @@ function renderCharts(region, brand) {
 
 // Render default charts on load
 renderCharts("all", "all");
+ 
