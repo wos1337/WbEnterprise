@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Sales Dashboard</title>
+  <title>Enterprise Dashboard</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -18,12 +18,8 @@
     <!-- Filters -->
     <div class="filters">
       <div class="filter">
-        <label for="dateRangeStart">Start Date</label>
-        <input type="date" id="dateRangeStart">
-      </div>
-      <div class="filter">
-        <label for="dateRangeEnd">End Date</label>
-        <input type="date" id="dateRangeEnd">
+        <label for="dateRange">Date Range</label>
+        <input type="date" id="dateRangeStart"> to <input type="date" id="dateRangeEnd">
       </div>
       <div class="filter">
         <label for="regionFilter">Region</label>
@@ -71,7 +67,7 @@
         <p class="metric-value">$1,800,000</p>
       </div>
       <div class="metric-card">
-        <h2>Top Customers</h2>
+        <h2>Top Customers (Dec)</h2>
         <p class="metric-value">Trail & Farm Dealers</p>
       </div>
     </div>
