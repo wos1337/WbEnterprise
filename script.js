@@ -64,3 +64,4 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Filters applied (Demo functionality).');
   });
 });
+ 
