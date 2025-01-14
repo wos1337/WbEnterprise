@@ -1,66 +1,66 @@
-// scripts.js
+document.getElementById("applyFilters").addEventListener("click", () => {
+  const region = document.getElementById("regionFilter").value;
+  const brand = document.getElementById("brandFilter").value;
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Sample Data
-  const salesByRegionData = {
-    labels: ['North', 'South', 'East', 'West'],
-    datasets: [
-      {
-        label: 'Sales ($)',
-        data: [300000, 250000, 200000, 400000],
-        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545']
-      }
-    ]
-  };
+  // Update Placeholder Data Dynamically
+  document.getElementById("dailySales").textContent = `$${Math.floor(Math.random() * 50000 + 20000)}`;
+  document.getElementById("monthlySales").textContent = `$${Math.floor(Math.random() * 800000 + 200000)}`;
+  document.getElementById("yearlySales").textContent = `$${Math.floor(Math.random() * 9000000 + 5000000)}`;
+  document.getElementById("profitByRegion").textContent = `$${Math.floor(Math.random() * 4000000 + 1000000)}`;
+  document.getElementById("profitByState").textContent = `$${Math.floor(Math.random() * 2000000 + 500000)}`;
 
-  const salesByProductData = {
-    labels: ['Windshield', 'Blades', 'Tracks', 'Lights', 'Seats'],
-    datasets: [
-      {
-        label: 'Sales ($)',
-        data: [120000, 150000, 180000, 220000, 60000],
-        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8']
-      }
-    ]
-  };
+  // Update Top Customers
+  const topCustomers = document.getElementById("topCustomers");
+  topCustomers.innerHTML = `
+    <li>${region === "North" ? "North Supplies" : "Global Traders"}</li>
+    <li>Green Valley Inc.</li>
+    <li>Trail & Farm Dealers</li>
+  `;
 
-  const topProductsData = {
-    labels: ['Tracks', 'Blades', 'Lights', 'Seats', 'Windshield'],
-    datasets: [
-      {
-        label: 'Units Sold',
-        data: [300, 250, 200, 180, 150],
-        backgroundColor: ['#dc3545', '#28a745', '#ffc107', '#007bff', '#17a2b8']
-      }
-    ]
-  };
-
-  const callAnalyticsData = {
-    labels: ['Total Calls', 'Avg Talk Time (min)', 'Missed Calls'],
-    datasets: [
-      {
-        label: 'Call Data',
-        data: [1200, 8, 45],
-        backgroundColor: ['#28a745', '#ffc107', '#dc3545']
-      }
-    ]
-  };
-
-  // Initialize Charts
-  const initChart = (ctx, data) => new Chart(ctx, { type: 'bar', data });
-
-  const regionCtx = document.getElementById('salesByRegionChart').getContext('2d');
-  const productCtx = document.getElementById('salesByProductChart').getContext('2d');
-  const topProductsCtx = document.getElementById('topProductsChart').getContext('2d');
-  const callAnalyticsCtx = document.getElementById('callAnalyticsChart').getContext('2d');
-
-  initChart(regionCtx, salesByRegionData);
-  initChart(productCtx, salesByProductData);
-  initChart(topProductsCtx, topProductsData);
-  initChart(callAnalyticsCtx, callAnalyticsData);
-
-  // Filter Button (Demo functionality)
-  document.getElementById('applyFilters').addEventListener('click', () => {
-    alert('Filters applied (Demo functionality).');
-  });
+  // Reinitialize Charts with New Data
+  renderCharts(region, brand);
 });
+
+function renderCharts(region, brand) {
+  // Example data based on region and brand
+  const regionSales = {
+    North: 500000,
+    South: 600000,
+    East: 700000,
+    West: 800000,
+    all: 1000000,
+  };
+
+  const ctx1 = document.getElementById("salesByRegionChart").getContext("2d");
+  new Chart(ctx1, {
+    type: "bar",
+    data: {
+      labels: ["North", "South", "East", "West"],
+      datasets: [
+        {
+          label: "Sales",
+          data: Object.values(regionSales),
+          backgroundColor: ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
+        },
+      ],
+    },
+  });
+
+  const ctx2 = document.getElementById("salesByProductChart").getContext("2d");
+  new Chart(ctx2, {
+    type: "doughnut",
+    data: {
+      labels: ["Product A", "Product B", "Product C", "Product D"],
+      datasets: [
+        {
+          label: "Product Sales",
+          data: [300, 500, 200, 400],
+          backgroundColor: ["#ff6384", "#36a2eb", "#cc65fe", "#ffce56"],
+        },
+      ],
+    },
+  });
+}
+
+// Render default charts on load
+renderCharts("all", "all");
