@@ -13,8 +13,46 @@
     <!-- Header -->
     <header class="py-4 bg-primary text-white text-center">
       <h1>Enterprise Sales Dashboard</h1>
-      <p>Visualizing Data for Strategic Decisions</p>
+      <p>Gain actionable insights into sales and performance</p>
     </header>
+
+    <!-- Filter Section -->
+    <section class="my-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5>Filters</h5>
+          <form class="row g-3">
+            <div class="col-md-3">
+              <label for="dateRange" class="form-label">Date Range</label>
+              <input type="date" id="dateRange" class="form-control">
+            </div>
+            <div class="col-md-3">
+              <label for="region" class="form-label">Region</label>
+              <select id="region" class="form-select">
+                <option selected>All</option>
+                <option value="Northeast">Northeast</option>
+                <option value="Midwest">Midwest</option>
+                <option value="South">South</option>
+                <option value="West">West</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="brand" class="form-label">Brand</label>
+              <select id="brand" class="form-select">
+                <option selected>All</option>
+                <option value="Kubota">Kubota</option>
+                <option value="John Deere">John Deere</option>
+                <option value="New Holland">New Holland</option>
+                <option value="Case IH">Case IH</option>
+              </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+              <button type="button" id="applyFilters" class="btn btn-primary w-100">Apply Filters</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <!-- Summary Section -->
     <section class="row my-4 text-center">
