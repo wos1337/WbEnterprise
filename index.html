@@ -12,23 +12,23 @@
     <!-- Header -->
     <header class="dashboard-header">
       <h1>Enterprise Sales Dashboard</h1>
-      <p>Comprehensive insights into your business performance</p>
+      <p>Comprehensive insights into sales, customers, and performance metrics</p>
     </header>
 
     <!-- Filters -->
     <div class="filters">
       <div class="filter">
         <label for="dateRange">Date Range</label>
-        <input type="date" id="dateRange">
+        <input type="date" id="dateRangeStart"> to <input type="date" id="dateRangeEnd">
       </div>
       <div class="filter">
         <label for="regionFilter">Region</label>
         <select id="regionFilter">
           <option value="all">All Regions</option>
-          <option value="north">North</option>
-          <option value="south">South</option>
-          <option value="east">East</option>
-          <option value="west">West</option>
+          <option value="North">North</option>
+          <option value="South">South</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
         </select>
       </div>
       <div class="filter">
@@ -59,8 +59,16 @@
         <p class="metric-value">$9,000,000</p>
       </div>
       <div class="metric-card">
-        <h2>Orders This Month</h2>
-        <p class="metric-value">1,200</p>
+        <h2>Profit by Region</h2>
+        <p class="metric-value">$2,400,000</p>
+      </div>
+      <div class="metric-card">
+        <h2>Profit by State</h2>
+        <p class="metric-value">$1,800,000</p>
+      </div>
+      <div class="metric-card">
+        <h2>Top Customers (Dec)</h2>
+        <p class="metric-value">Trail & Farm Dealers</p>
       </div>
     </div>
 
@@ -73,6 +81,14 @@
       <div class="chart-container">
         <h3>Sales by Product</h3>
         <canvas id="salesByProductChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Top 5 Products</h3>
+        <canvas id="topProductsChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>Call Analytics</h3>
+        <canvas id="callAnalyticsChart"></canvas>
       </div>
     </div>
   </div>
