@@ -3,133 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enterprise Sales Dashboard</title>
+  <title>Enterprise Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="container-fluid">
-    <!-- Header -->
-    <header class="py-4 bg-primary text-white text-center">
-      <h1>Enterprise Sales Dashboard</h1>
-      <p>Gain actionable insights into sales and performance</p>
-    </header>
+  <div class="container-fluid p-0">
+    <!-- Sidebar -->
+    <div class="d-flex">
+      <nav class="sidebar bg-dark text-white p-3">
+        <h3 class="sidebar-header">Dashboard</h3>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="#">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Analytics</a>
+          </li>
+        </ul>
+      </nav>
 
-    <!-- Filter Section -->
-    <section class="my-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h5>Filters</h5>
-          <form class="row g-3">
-            <div class="col-md-3">
-              <label for="dateRange" class="form-label">Date Range</label>
-              <input type="date" id="dateRange" class="form-control">
+      <!-- Main Content -->
+      <main class="flex-grow-1">
+        <!-- Header -->
+        <header class="p-4 bg-primary text-white">
+          <h1>Enterprise Sales Dashboard</h1>
+          <p>Track sales performance, trends, and analytics</p>
+        </header>
+
+        <!-- Filters -->
+        <section class="p-4">
+          <div class="row">
+            <div class="col-md-4">
+              <label for="dateFilter" class="form-label">Date Range</label>
+              <input type="date" class="form-control" id="dateFilter">
             </div>
-            <div class="col-md-3">
-              <label for="region" class="form-label">Region</label>
-              <select id="region" class="form-select">
-                <option selected>All</option>
-                <option value="Northeast">Northeast</option>
-                <option value="Midwest">Midwest</option>
-                <option value="South">South</option>
-                <option value="West">West</option>
+            <div class="col-md-4">
+              <label for="regionFilter" class="form-label">Region</label>
+              <select id="regionFilter" class="form-select">
+                <option value="all">All</option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <option value="west">West</option>
               </select>
             </div>
+            <div class="col-md-4 d-flex align-items-end">
+              <button class="btn btn-primary w-100" id="filterButton">Apply Filters</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="p-4">
+          <div class="row text-center">
             <div class="col-md-3">
-              <label for="brand" class="form-label">Brand</label>
-              <select id="brand" class="form-select">
-                <option selected>All</option>
-                <option value="Kubota">Kubota</option>
-                <option value="John Deere">John Deere</option>
-                <option value="New Holland">New Holland</option>
-                <option value="Case IH">Case IH</option>
-              </select>
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5>Total Sales</h5>
+                  <p class="display-6" id="total-sales">$1,000,000</p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-3 d-flex align-items-end">
-              <button type="button" id="applyFilters" class="btn btn-primary w-100">Apply Filters</button>
+            <div class="col-md-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5>Total Orders</h5>
+                  <p class="display-6" id="total-orders">5,000</p>
+                </div>
+              </div>
             </div>
-          </form>
-        </div>
-      </div>
-    </section>
+            <div class="col-md-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5>Daily Sales</h5>
+                  <p class="display-6 text-success" id="daily-sales">$20,000</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <h5>Top Region</h5>
+                  <p class="display-6" id="top-region">West</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-    <!-- Summary Section -->
-    <section class="row my-4 text-center">
-      <div class="col-md-3">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5>Daily Sales</h5>
-            <p class="fs-4 text-success" id="daily-sales">$25,000</p>
+        <!-- Charts -->
+        <section class="p-4">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card shadow-sm">
+                <div class="card-header">Sales by Region</div>
+                <div class="card-body">
+                  <canvas id="salesByRegion"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card shadow-sm">
+                <div class="card-header">Sales by Product</div>
+                <div class="card-body">
+                  <canvas id="salesByProduct"></canvas>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5>Monthly Sales</h5>
-            <p class="fs-4 text-success" id="monthly-sales">$750,000</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5>Yearly Sales</h5>
-            <p class="fs-4 text-success" id="yearly-sales">$9,000,000</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5>Orders This Month</h5>
-            <p class="fs-4 text-info" id="monthly-orders">1,200</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Charts Section -->
-    <section class="row">
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-header">Sales by Region</div>
-          <div class="card-body">
-            <canvas id="sales-by-region"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-header">Sales by State</div>
-          <div class="card-body">
-            <canvas id="sales-by-state"></canvas>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="row">
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-header">Sales by Brand</div>
-          <div class="card-body">
-            <canvas id="sales-by-brand"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-header">Sales by Product</div>
-          <div class="card-body">
-            <canvas id="sales-by-product"></canvas>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </main>
+    </div>
   </div>
-
   <script src="scripts.js"></script>
 </body>
 </html>
